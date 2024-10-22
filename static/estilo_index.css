@@ -1,4 +1,4 @@
-/* Estilos globales */
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -7,14 +7,14 @@ body {
     padding: 20px;
 }
 
-/* Título principal */
+
 h1 {
     color: #2c3e50;
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Estilo para el nav */
+
 nav {
     text-align: center;
     margin-bottom: 20px;
@@ -34,7 +34,6 @@ nav a:hover {
     background-color: #2980b9;
 }
 
-/* Estilos para el formulario */
 form {
     background-color: #fff;
     padding: 20px;
