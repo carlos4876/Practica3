@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Registro</title>
+    <link rel="stylesheet" href="static/estilo_editar.css">
+</head>
+<body>
+    <h1>Editar Registro</h1>
+    <form action="{{ url_for('editar', id=inscrito.id) }}" method="POST">
+        <fieldset>
+            <legend>Datos</legend>
+            <div>
+                Fecha: <input type="date" name="fecha" value="{{ inscrito.fecha }}" required><br>
+                Nombre: <input type="text" name="nombre" value="{{ inscrito.nombre }}" required><br>
+                Apellidos: <input type="text" name="apellidos" value="{{ inscrito.apellidos }}" required><br>
+                Turno: 
+                <input type="radio" name="turno" value="Mañana" {% if inscrito.turno == 'Mañana' %}checked{% endif %} required> Mañana
+                <input type="radio" name="turno" value="Tarde" {% if inscrito.turno == 'Tarde' %}checked{% endif %}> Tarde
+                <input type="radio" name="turno" value="Noche" {% if inscrito.turno == 'Noche' %}checked{% endif %}> Noche
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Seminarios disponibles</legend>
+            {% set seminarios_lista = inscrito.seminarios.split(', ') %}
+            <input type="checkbox" name="seminarios" value="Inteligencia Artificial" {% if 'Inteligencia Artificial' in seminarios_lista %}checked{% endif %}> Inteligencia Artificial<br>
+            <input type="checkbox" name="seminarios" value="Machine Learning" {% if 'Machine Learning' in seminarios_lista %}checked{% endif %}> Machine Learning<br>
+            <input type="checkbox" name="seminarios" value="Simulación con Arena" {% if 'Simulación con Arena' in seminarios_lista %}checked{% endif %}> Simulación con Arena<br>
+            <input type="checkbox" name="seminarios" value="Robótica Educativa" {% if 'Robótica Educativa' in seminarios_lista %}checked{% endif %}> Robótica Educativa<br>
+        </fieldset>
+        
+        <input type="submit" value="Actualizar">
+    </form>
+</body>
+</html>
